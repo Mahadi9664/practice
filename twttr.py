@@ -8,7 +8,7 @@ def main():
 
 def shorten(word):
     vowels = {'a','e','i','o','u','A','E','I','O','U'}
-    result = []
+    result = [] 
     for char in word:
         if char not in vowels:
             result.append(char)
