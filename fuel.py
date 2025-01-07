@@ -1,25 +1,38 @@
-while True:
-    try:
-        x, y = map(int,input("Fraction (X/Y): ").split('/'))
-        if y == 0:
-            raise ZeroDivisionError
-        if x>y:
-            raise ValueError
-        
-        percentage = round((x/y)*100)
-
-        if percentage <= 1:
-            print("E")
-        elif percentage >=99:
-            print("F")
-        else:
-            print(f"Fraction: {percentage}%")
-        break
-    except ValueError:
-        pass
-    except ZeroDivisionError:
-        pass
+def main():
+    fraction = input("Fraction: ")
+    fraction_converted = convert(fraction)
+    output = gauge(fraction_converted)
+    print(output)
 
 
-        
+def convert(fraction):
+    while True:
+        try:
+            numerator, denominator = fraction.split("/")
+            x = int(numerator)
+            y = int(denominator)
+
+            f = x/y
+
+            if f <= 1:
+                p = int(f*100)
+                return p
+            
+            else:
+                fraction = input("Fraction: ")
+                pass
+        except (ValueError, ZeroDivisionError):
+            raise
+
+def gauge(percentage):
+    if percentage <= 1:
+        return "E"
+    elif percentage >= 99:
+        return "F"
+    else:
+        return str(percentage) + "%"
     
+if __name__ == "__main__":
+    main()
+
+  
