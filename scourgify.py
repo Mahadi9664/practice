@@ -36,10 +36,10 @@ def main():
         sys.exit("File does not exist")
 
     try:
-        with open(sys.argv[2], "w", newline="") as file:  # Include 'newline=""'
+        with open(sys.argv[2], "w", newline="") as file: 
             writer = csv.DictWriter(file, fieldnames=['first', 'last', 'house'])
             writer.writeheader()
-            writer.writerows(output)  # Write all rows at once
+            writer.writerows(output)  
 
     except Exception as e:
         sys.exit(f"Error writing to file: {e}")
