@@ -2,11 +2,11 @@ import re
 
 
 def main():
-    print(count(input("Text: ")))
+    print(count(input("Text: ").strip()))
 
 
 def count(s):
-    x = re.findall(r"\bum\b", s)
+    x = re.findall(r"\bum\b", s, re.IGNORECASE)
 
     num = 0
     for i in x:
