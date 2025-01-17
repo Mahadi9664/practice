@@ -18,6 +18,9 @@ def convert(s):
         minute2 = int(x.group(5) or 0)
         period2 = x.group(6)
 
+
+        if hour1 > 12:
+            raise ValueError
         if period1 == 'pm' and hour1 != 12:
             hour1 += 12
         if period1 == 'am' and hour1 == 12:
@@ -25,6 +28,8 @@ def convert(s):
         left = f"{hour1:02}:{minute1:02}"
 
 
+        if hour2 > 12:
+            raise ValueError
         if period2 == 'pm' and hour2 != 12:
             hour2 += 12
         if period2 == 'am' and hour2 == 12:
